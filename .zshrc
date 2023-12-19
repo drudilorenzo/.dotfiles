@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set default editor to nano
-export EDITOR=nano
+export EDITOR=vim
 export VISUAL="$EDITOR"
 
 alias python="python3"
@@ -109,6 +109,10 @@ alias apt="sudo apt"
 alias apt-get="sudo apt-get"
 alias update="sudo apt-get update && sudo apt-get upgrade"
 alias c="clear"
+alias h="history"
+alias e="exit"
+alias l="ls -l"
+alias vi="vim"
 
 # Fancy command
 alias ls="exa -l"
@@ -118,4 +122,26 @@ alias f="lf"
 # GIT aliases
 alias gc="git commit"
 alias gs="git status"
-alias gl="git log --graph"
+alias gl="git log --all --graph"
+alias grv="git reset --soft HEAD~1"
+
+# Kubernetes aliases
+export KUBECONFIG=~/.kube/config
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/drudao/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/drudao/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/drudao/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="~/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
